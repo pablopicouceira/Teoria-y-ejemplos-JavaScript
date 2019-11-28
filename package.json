@@ -1,0 +1,24 @@
+{
+  "name": "Teoria-y-ejemplos-JavaScript",
+  "version": "1.0.0",
+  "description": "En este repositorio se incluirán diversos archivos con teoría y ejemplos de métodos, referencias, etc. Así mismo, habŕa una librería en la que se irán guardando funciones pequeñas de uso habitual.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "browser-sync start --server 'www' --files 'www'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pablopicouceira/Teoria-y-ejemplos-JavaScript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pablopicouceira/Teoria-y-ejemplos-JavaScript/issues"
+  },
+  "homepage": "https://github.com/pablopicouceira/Teoria-y-ejemplos-JavaScript#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
+  }
+}
