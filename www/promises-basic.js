@@ -19,11 +19,11 @@ const sumaDiferida = (a, b) => {
 const sumaDiferidaPromise = function(a, b) {
   return new Promise((resolve, reject) => {
     if (a > 100) {
-      reject(new Error('no se sumar numeros mayores a 100'));
+      reject(new Error("no se sumar numeros mayores a 100"));
     }
 
     if (isNaN(a) || isNaN(b)) {
-      reject(new Error('Sólo puedo sumar números'));
+      reject(new Error("Sólo puedo sumar números"));
     }
 
     setTimeout(function() {
@@ -35,7 +35,7 @@ const sumaDiferidaPromise = function(a, b) {
 const doublePromise = n => {
   return new Promise((resolve, reject) => {
     if (n > 100)
-      reject(new Error('sólo se sumar números menores o iguales 100'));
+      reject(new Error("sólo se sumar números menores o iguales 100"));
     setTimeout(() => {
       resolve(n * 2);
     }, 1000);
@@ -45,13 +45,20 @@ const doublePromise = n => {
 const procesaResultado = resultado =>
   console.log(`El resultado es ${resultado}`);
 
+console.log(sumaDiferidaPromise(10, 7)); // sale pendiente
+
 sumaDiferidaPromise(10, 7)
   .then(doublePromise)
   .then(procesaResultado)
   .catch(error => console.error(error.message))
-  .finally(() => console.log('sea como sea ya acabé'));
+  .finally(() => console.log("sea como sea ya acabé"));
 
-const valores = [[1, 4], [3, 110], [2, 5], [22, 12]];
+const valores = [
+  [1, 4],
+  [3, 110],
+  [2, 5],
+  [22, 12]
+];
 
 const sumas = valores.map(valor => sumaDiferidaPromise(valor[0], valor[1]));
 

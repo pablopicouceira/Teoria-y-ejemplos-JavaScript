@@ -58,28 +58,30 @@ const getIDs = new Promise((resolve, reject) => {
 });
 
 const getRecipe = recipeID => {
+  // El parámetro es una receta (uno de los 3 objetos de recipesBD)
   return new Promise((resolve, reject) => {
     setTimeout(
       recipe => {
-        resolve(`${recipe.publisher}: ${recipe.recipes[1].title}`);
+        resolve(`${recipe.publisher}: ${recipe.recipes[0].title}`);
         reject("Error");
       },
-      1500,
+      3000,
       recipeID
     );
   });
 };
 
-// Con "then/catch"  manejamos los datos almacenados en
-// la promesa creada anteriormente.
+// Con "then/catch"  manejamos los datos almacenados en la promesa creada anteriormente.
 getIDs
-  .then(recipesID => {
-    console.log(recipesID);
-    return getRecipe(recipesID[0]);
+  .then(recetas => {
+    // El then recibe como parámetro el resolve de getIds (o sea, recipesBD. recipesBD son 3 recetas)
+    console.log(recetas);
+    return getRecipe(recetas[0]); //devuelve la receta de la posición 0 (podríamos poner otra)
   })
   .then(recipe => {
-    console.log(recipe);
-  })
+    // Este then recibe como parámetro el return anterior (la receta de la posición 0)
+    console.log(recipe); // sale "Macarrones a la putanesca" porque en el resolve del getRecipe (arriba) se indica que muestra la
+  }) // la posición 1 del array recipes
   .catch(error => {
     console.log(error);
   });
